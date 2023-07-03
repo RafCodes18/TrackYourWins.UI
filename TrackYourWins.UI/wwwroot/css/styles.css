@@ -39,6 +39,8 @@
 
 #win-btn:hover {
   background-color: rgba(0, 255, 0, 0.8); /* darker green on hover */
+  box-shadow: 1px 1px 1px 1px #545454;
+  color: #fff;
 }
 
 .hidden {
@@ -74,13 +76,13 @@ footer {
 #lineContainer {
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: 10px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     padding: 0px 10px;
-    height: 20px;
+    height: 20px;    
 }
 
 .line {
@@ -113,8 +115,8 @@ footer {
 }
 
 .block {
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
     background-color: lime;
     margin-top: 5px; /* Margin between blocks */
     margin-bottom: 12px;
