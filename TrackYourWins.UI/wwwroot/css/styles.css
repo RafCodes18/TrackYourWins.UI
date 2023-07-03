@@ -84,10 +84,38 @@ footer {
 }
 
 .line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 0px;
-    height: 10px; /* Adjust the height as needed */
-    background-color: #fff; /* Adjust the color as needed */
-    position: relative; /* Added */
+    height: 10px;
+    background-color: #fff;
+    position: relative;
     margin-bottom: 100px;
     z-index: -999;
+}
+
+.block-container {
+    position: absolute;
+    bottom: 15px; /* Height of the line + height of the day-label */
+}
+
+.day-label {
+    position: absolute;
+    bottom: 0;
+}
+
+.block-container {
+    position: absolute;
+    bottom: 10px; /* Height of the line */
+    left: 50%; /* Center the blocks horizontally */
+    transform: translateX(-50%); /* Center the blocks horizontally */
+}
+
+.block {
+    width: 15px;
+    height: 15px;
+    background-color: lime;
+    margin-top: 5px; /* Margin between blocks */
+    margin-bottom: 12px;
 }

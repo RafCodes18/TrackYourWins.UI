@@ -18,7 +18,7 @@
             <source src="~/video/motiv8.mp4" type="video/mp4">
 
         </video>
-        <button id="win-btn" onclick="showForm()">W I N</button>
+        <button id="win-btn" >W I N</button>
       @*  <div id="congrats-modal" class="hidden">
             <h1>Congratulations!</h1>
             <form onsubmit="event.preventDefault(); addAchievement();">
@@ -37,6 +37,8 @@
     <script>
         var videoElement = document.getElementById('bgvid');
         var volumeButton = document.getElementById('volumeButton');
+        var winButton = document.getElementById('win-btn');
+
 
         volumeButton.addEventListener('click', function () {
             if (videoElement.muted) {
@@ -57,6 +59,7 @@
         for (var i = 0; i < 30; i++) {
             var line = document.createElement('div');
             line.className = 'line';
+            line.id = 'day-' + (currentDay + i);  // Assign each line a unique id based on the day
 
             if (i === 0) {
                 line.style.backgroundColor = 'red'; // Example: Highlighting the first line
@@ -70,7 +73,35 @@
             line.appendChild(day);
         }
 
+        winButton.addEventListener('click', function () {
+            // Get the current day
+            var currentDay = new Date().getDate();
+
+            // Find the line corresponding to the current day
+            var line = document.getElementById('day-' + currentDay);
+
+            if (!line) {
+                // If the line for the current day does not exist, do nothing
+                return;
+            }
+
+            var blockContainer = line.querySelector('.block-container');
+
+            if (!blockContainer) {
+                // If the block container does not exist for this line, create it
+                blockContainer = document.createElement('div');
+                blockContainer.className = 'block-container';
+                line.appendChild(blockContainer);
+            }
+
+            var block = document.createElement('div');
+            block.className = 'block';
+            blockContainer.appendChild(block); // Append the block to the block-container
+        });
+
+
     </script>
+
 
     <footer>
     </footer>
