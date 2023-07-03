@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>My Site</title>
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Della+Respira&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+
+</head>
+<body>
+    <div class="container">
+        <i id="volumeButton" class="fas fa-volume-xmark white-icon" style="position:fixed; right:20px; bottom:20px; font-size:30px; cursor:pointer;"></i>
+
+        <video id="bgvid" autoplay loop muted>
+            <source src="~/video/motiv8.mp4" type="video/mp4">
+
+        </video>
+        <button id="win-btn" onclick="showForm()">W I N</button>
+      @*  <div id="congrats-modal" class="hidden">
+            <h1>Congratulations!</h1>
+            <form onsubmit="event.preventDefault(); addAchievement();">
+                <input type="text" id="achievement" required>
+                <input type="submit" value="Submit">
+            </form>
+        </div>*@
+    </div>
+
+
+    <div id="lineContainer">
+        <!-- Add the 60 line elements dynamically using JavaScript -->
+    </div>
+
+
+    <script>
+        var videoElement = document.getElementById('bgvid');
+        var volumeButton = document.getElementById('volumeButton');
+
+        volumeButton.addEventListener('click', function () {
+            if (videoElement.muted) {
+                // If muted, unmute the video and change button icon
+                videoElement.muted = false;
+                volumeButton.className = 'fas fa-volume-up white-icon';
+            } else {
+                // If unmuted, mute the video and change button icon
+                videoElement.muted = true;
+                volumeButton.className = 'fas fa-volume-mute white-icon';
+            }
+        });
+
+        var lineContainer = document.getElementById('lineContainer');
+        var currentDate = new Date();
+        var currentDay = currentDate.getDate();
+
+        for (var i = 0; i < 30; i++) {
+            var line = document.createElement('div');
+            line.className = 'line';
+
+            if (i === 0) {
+                line.style.backgroundColor = 'red'; // Example: Highlighting the first line
+            }
+
+            lineContainer.appendChild(line);
+
+            var day = document.createElement('span');
+            day.className = 'day-label';
+            day.textContent = currentDay + i;
+            line.appendChild(day);
+        }
+
+    </script>
+
+    <footer>
+    </footer>
+    <script src="~/Scripts/script.js"></script>
+</body>
+</html>
